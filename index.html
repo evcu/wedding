@@ -1,0 +1,841 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayvalık Wedding 2027</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  :root{
+    --ink: #1B2E35;
+    --ink-soft: #48606A;
+    --sea: #2E6E7E;
+    --sea-strong: #1F5866;
+    --olive: #6C7A45;
+    --gold: #B08A32;
+    --ground: #EEEDE2;
+    --ground-raised: #F8F7EF;
+    --ground-sunk: #E4E2D4;
+    --line: rgba(27,46,53,0.16);
+    --line-strong: rgba(27,46,53,0.32);
+    --shadow: 0 1px 2px rgba(27,46,53,0.06), 0 8px 24px -12px rgba(27,46,53,0.18);
+    --stamp: #A34633;
+    --sea-fill: #C9DDE0;
+    --land-fill: #DCD6BD;
+    --land-line: #8A8564;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink: #EAE6D8;
+      --ink-soft: #B7C4C6;
+      --sea: #7FC3D1;
+      --sea-strong: #9AD4E0;
+      --olive: #A8B37C;
+      --gold: #D8AE55;
+      --ground: #16262C;
+      --ground-raised: #1D3038;
+      --ground-sunk: #101E23;
+      --line: rgba(234,230,216,0.14);
+      --line-strong: rgba(234,230,216,0.28);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+      --stamp: #E08468;
+      --sea-fill: #1B3D46;
+      --land-fill: #3A4232;
+      --land-line: #6E7A54;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink: #EAE6D8;
+    --ink-soft: #B7C4C6;
+    --sea: #7FC3D1;
+    --sea-strong: #9AD4E0;
+    --olive: #A8B37C;
+    --gold: #D8AE55;
+    --ground: #16262C;
+    --ground-raised: #1D3038;
+    --ground-sunk: #101E23;
+    --line: rgba(234,230,216,0.14);
+    --line-strong: rgba(234,230,216,0.28);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    --stamp: #E08468;
+    --sea-fill: #1B3D46;
+    --land-fill: #3A4232;
+    --land-line: #6E7A54;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:'Karla', ui-sans-serif, system-ui, sans-serif;
+    font-size:17px;
+    line-height:1.6;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    text-wrap:balance;
+    margin:0;
+    color:var(--ink);
+  }
+
+  .eyebrow{
+    font-family:'Space Mono', ui-monospace, monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--sea-strong);
+    display:flex;
+    align-items:center;
+    gap:0.6em;
+    margin:0 0 0.9em;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:1px;
+    background:var(--sea-strong);
+    display:inline-block;
+  }
+
+  a{ color:var(--sea-strong); }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
+    outline:2px solid var(--sea-strong);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- perforation divider (ticket edge) ---------- */
+  .perforation{
+    height:22px;
+    background-image: radial-gradient(circle, var(--ground) 3.5px, transparent 3.6px);
+    background-size: 22px 22px;
+    background-position: 0 -11px;
+    position:relative;
+  }
+  .perforation::before, .perforation::after{
+    content:"";
+    position:absolute;
+    left:0; right:0;
+    height:1px;
+    background:var(--line);
+  }
+  .perforation::before{ top:0; }
+  .perforation::after{ bottom:0; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(ellipse 700px 380px at 15% -10%, rgba(176,138,50,0.16), transparent 60%),
+      var(--ground-raised);
+    border-bottom:1px solid var(--line);
+    padding:64px 0 0;
+  }
+  .hero-inner{ max-width:760px; margin:0 auto; padding:0 24px 40px; }
+  .route-mark{
+    font-family:'Space Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:28px;
+  }
+  .route-mark .code{
+    font-weight:700;
+    color:var(--ink);
+    border:1px solid var(--line-strong);
+    padding:2px 7px;
+    border-radius:3px;
+  }
+  .route-mark .path{
+    flex:1;
+    height:0;
+    border-top:1px dashed var(--line-strong);
+    position:relative;
+    top:-3px;
+  }
+  h1.title{
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    line-height:1.05;
+    font-style:italic;
+    font-weight:500;
+  }
+  h1.title em{
+    font-style:normal;
+    font-weight:600;
+    color:var(--sea-strong);
+  }
+  .hero-sub{
+    margin-top:18px;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+
+  .boarding-strip{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+    margin-top:40px;
+    border:1px solid var(--line-strong);
+    border-radius:8px;
+    overflow:hidden;
+    background:var(--ground-raised);
+    box-shadow:var(--shadow);
+  }
+  .boarding-cell{
+    flex:1 1 140px;
+    padding:16px 20px;
+    border-left:1px dashed var(--line);
+  }
+  .boarding-cell:first-child{ border-left:none; }
+  .boarding-cell .k{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+  .boarding-cell .v{
+    font-family:'Space Mono', monospace;
+    font-size:16px;
+    font-weight:700;
+    color:var(--ink);
+  }
+
+  /* ---------- sections ---------- */
+  section.card{
+    background:var(--ground-raised);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:36px 32px;
+    margin:28px 0;
+    box-shadow:var(--shadow);
+  }
+  @media (max-width:600px){
+    section.card{ padding:26px 20px; }
+  }
+  .tldr-text{
+    font-size:1.05rem;
+    max-width:64ch;
+  }
+  .tldr-text + .tldr-text{ margin-top:1em; }
+
+  .draft-stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:'Space Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--stamp);
+    border:1.5px solid var(--stamp);
+    border-radius:4px;
+    padding:2px 8px;
+    transform:rotate(-2deg);
+    opacity:0.85;
+    margin-left:10px;
+    vertical-align:middle;
+  }
+
+  /* ---------- itinerary days ---------- */
+  .days{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(150px,1fr));
+    gap:14px;
+    margin-top:24px;
+  }
+  .day{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:16px 16px 18px;
+    background:var(--ground);
+  }
+  .day .dow{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--sea-strong);
+  }
+  .day .dnum{
+    font-family:'Fraunces', serif;
+    font-size:2.1rem;
+    font-weight:600;
+    line-height:1.1;
+    margin:2px 0 8px;
+  }
+  .day .devent{
+    font-size:0.92rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- map ---------- */
+  .map-figure{ margin:24px 0 8px; }
+  .map-svg-wrap{
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--sea-fill);
+  }
+  .map-svg-wrap svg{ display:block; width:100%; height:auto; }
+  figcaption{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:10px;
+    text-align:center;
+  }
+
+  .pin{ cursor:pointer; }
+  .pin .pin-halo{ opacity:0; transition:opacity 0.15s ease; }
+  .pin:hover .pin-halo, .pin:focus .pin-halo, .pin.active .pin-halo{ opacity:0.35; }
+  .pin .pin-dot{ transition:transform 0.15s ease; transform-origin:center; }
+  .pin:hover .pin-dot, .pin:focus .pin-dot, .pin.active .pin-dot{ transform:scale(1.15); }
+
+  .route-km{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    fill:var(--ink-soft);
+  }
+
+  .tooltip{
+    position:absolute;
+    max-width:240px;
+    background:var(--ink);
+    color:var(--ground);
+    font-size:13px;
+    line-height:1.45;
+    padding:10px 12px;
+    border-radius:6px;
+    pointer-events:none;
+    opacity:0;
+    transform:translate(-50%, -100%) translateY(-10px);
+    transition:opacity 0.12s ease;
+    z-index:5;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  }
+  .tooltip.show{ opacity:1; }
+  .tooltip strong{ display:block; font-family:'Space Mono', monospace; font-size:11.5px; letter-spacing:0.03em; color:var(--gold); margin-bottom:3px; text-transform:uppercase; }
+  .map-container{ position:relative; }
+
+  /* airport data table (accessible fallback + always-visible detail) */
+  .airport-table{
+    width:100%;
+    min-width:560px;
+    border-collapse:collapse;
+    margin-top:22px;
+    font-size:0.92rem;
+  }
+  .airport-table caption{
+    text-align:left;
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .airport-table th{
+    text-align:left;
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    font-weight:400;
+    padding:8px 10px;
+    border-bottom:1px solid var(--line-strong);
+  }
+  .airport-table td{
+    padding:10px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  .airport-table td.num{ font-family:'Space Mono', monospace; white-space:nowrap; }
+  .airport-table tr:last-child td{ border-bottom:none; }
+  .airport-table .name{ font-weight:700; }
+  .airport-table .code{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+  }
+  .table-scroll{ overflow-x:auto; }
+
+  /* ---------- sample itineraries ---------- */
+  .itin-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(190px,1fr));
+    gap:14px;
+    margin-top:24px;
+  }
+  .itin-card{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:18px 18px 20px;
+    background:var(--ground);
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .itin-route{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.05em;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .itin-route .city{
+    font-weight:700;
+    color:var(--ink);
+  }
+  .itin-card h3{
+    font-size:1.2rem;
+    font-style:italic;
+    font-weight:500;
+  }
+  .itin-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--sea-strong);
+    margin-top:auto;
+  }
+  .itin-link svg{ width:13px; height:13px; }
+  .itin-link:hover{ text-decoration:underline; }
+
+  /* ---------- RSVP ticket ---------- */
+  .ticket{
+    display:grid;
+    grid-template-columns:1fr;
+    border:1px solid var(--line-strong);
+    border-radius:12px;
+    overflow:hidden;
+    background:var(--ground-raised);
+    box-shadow:var(--shadow);
+  }
+  .ticket-main{ padding:32px 32px 28px; }
+  .ticket-foot{
+    background:var(--ground-sunk);
+    padding:22px 32px 26px;
+    border-top:1px dashed var(--line-strong);
+    position:relative;
+  }
+  .ticket-foot::before, .ticket-foot::after{
+    content:"";
+    position:absolute;
+    top:-11px;
+    width:22px; height:22px;
+    border-radius:50%;
+    background:var(--ground);
+    border:1px solid var(--line);
+  }
+  .ticket-foot::before{ left:-11px; }
+  .ticket-foot::after{ right:-11px; }
+
+  .rsvp-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--gold);
+    color:#1B2E35;
+    font-family:'Space Mono', monospace;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:14px 22px;
+    border-radius:7px;
+    transition:filter 0.15s ease, transform 0.15s ease;
+  }
+  .rsvp-btn:hover{ filter:brightness(1.08); transform:translateY(-1px); }
+  .rsvp-btn svg{ width:16px; height:16px; }
+
+  .rsvp-note{
+    font-size:0.88rem;
+    color:var(--ink-soft);
+    margin-top:14px;
+  }
+  .rsvp-note code{
+    font-family:'Space Mono', monospace;
+    background:var(--ground-sunk);
+    padding:1px 6px;
+    border-radius:3px;
+    font-size:0.85em;
+  }
+
+  footer{
+    text-align:center;
+    padding:44px 24px 64px;
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.04em;
+    color:var(--ink-soft);
+  }
+  footer .hearts{ color:var(--stamp); }
+
+  .visually-hidden{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+</style>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="route-mark">
+      <span class="code">YOU</span>
+      <span class="path" aria-hidden="true"></span>
+      <span class="code">AYVALIK</span>
+    </div>
+    <h1 class="title">Getting married in <em>Ayvalık</em></h1>
+    <p class="hero-sub">A long weekend on Turkey's northern Aegean coast — olive groves, whitewashed streets, and the sea. Everything guests need to plan the trip lives on this one page, and we'll keep adding to it between now and May 2027.</p>
+
+    <div class="boarding-strip">
+      <div class="boarding-cell">
+        <div class="k">Dates</div>
+        <div class="v">18–21 MAY 2027</div>
+      </div>
+      <div class="boarding-cell">
+        <div class="k">Location</div>
+        <div class="v">Ayvalık, TR</div>
+      </div>
+      <div class="boarding-cell">
+        <div class="k">Nearest airport</div>
+        <div class="v">EDO · 47 KM</div>
+      </div>
+    </div>
+  </div>
+  <div class="perforation" aria-hidden="true"></div>
+</div>
+
+<main class="wrap">
+
+  <section class="card" aria-labelledby="tldr-h">
+    <div class="eyebrow">The short version</div>
+    <h2 id="tldr-h" class="visually-hidden">TL;DR</h2>
+    <p class="tldr-text">We're getting married in Ayvalık over four days in May 2027 — think olive-oil coastline, long dinners, and a big welcome for everyone who makes the trip. This page is the one place to check for dates, travel logistics, and how to RSVP; we'll fill in accommodation, dress code, and the full schedule as they're settled.</p>
+    <p class="tldr-text">Short on time? You need three things: the dates below, a flight into one of the nearby airports, and an RSVP before we finalize numbers.</p>
+    <span class="draft-stamp">placeholder text</span>
+  </section>
+
+  <section class="card" aria-labelledby="dates-h">
+    <div class="eyebrow">When</div>
+    <h2 id="dates-h">18–21 May 2027</h2>
+    <p style="color:var(--ink-soft); margin-top:10px; max-width:56ch;">A four-day weekend, Tuesday through Friday. Draft shape below — exact events and times TBD.</p>
+    <div class="days">
+      <div class="day">
+        <div class="dow">Tue</div>
+        <div class="dnum">18</div>
+        <div class="devent">Arrivals &amp; welcome gathering</div>
+      </div>
+      <div class="day">
+        <div class="dow">Wed</div>
+        <div class="dnum">19</div>
+        <div class="devent">Welcome dinner</div>
+      </div>
+      <div class="day">
+        <div class="dow">Thu</div>
+        <div class="dnum">20</div>
+        <div class="devent">Wedding day</div>
+      </div>
+      <div class="day">
+        <div class="dow">Fri</div>
+        <div class="dnum">21</div>
+        <div class="devent">Farewell brunch</div>
+      </div>
+    </div>
+    <span class="draft-stamp" style="margin-left:0; margin-top:16px; display:inline-flex;">schedule TBD</span>
+  </section>
+
+  <section class="card" aria-labelledby="map-h">
+    <div class="eyebrow">Getting here</div>
+    <h2 id="map-h">Ayvalık &amp; the nearest airports</h2>
+    <p style="color:var(--ink-soft); margin-top:10px; max-width:60ch;">Ayvalık sits on Turkey's northern Aegean coast. There's no airport in town — most guests will fly into one of these and drive the rest of the way. Hover or tap a pin for driving time; the table below has the full detail.</p>
+
+    <figure class="map-figure">
+      <div class="map-svg-wrap">
+        <div class="map-container" id="mapContainer">
+          <svg viewBox="0 0 626 748" role="img" aria-label="Map of northwest Turkey showing Ayvalık on the Aegean coast, the Dardanelles strait separating it from Istanbul, and the four nearest airports: Balıkesir Koca Seyit, Izmir Adnan Menderes, Istanbul, and Sabiha Gökçen." id="mapSvg">
+            <defs>
+              <linearGradient id="seaGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="var(--sea-fill)" />
+                <stop offset="1" stop-color="var(--sea-fill)" stop-opacity="0.75" />
+              </linearGradient>
+            </defs>
+
+            <rect x="0" y="0" width="626" height="748" fill="url(#seaGrad)" />
+
+            <!-- Asian mainland: Aegean coast (Izmir, Ayvalık, Kaz Dağı) around to the Asian shore of Istanbul (not to scale, straight-segment schematic) -->
+            <path d="M185.9,737 L194.4,677.6 L177.5,627 L165.6,561 L131.8,484
+                     L177.5,435.6 L152.1,413.6 L76.1,385 L109.9,352 L143.7,325.6
+                     L194.4,286 L278.9,253 L388.7,231 L481.7,198 L549.3,121
+                     L625.3,110 L625.3,748 L185.9,748 Z"
+                  fill="var(--land-fill)" stroke="var(--land-line)" stroke-width="1.5" stroke-linejoin="round" />
+
+            <!-- European Thrace / Gallipoli peninsula, across the strait -->
+            <path d="M42.3,308 L76.1,275 L118.3,242 L202.8,209 L321.1,187
+                     L456.3,132 L481.7,48.4 L405.6,66 L16.9,88 L0,264 Z"
+                  fill="var(--land-fill)" stroke="var(--land-line)" stroke-width="1.5" stroke-linejoin="round" />
+
+            <!-- Cunda / Ayvalık islands, decorative -->
+            <circle cx="103" cy="500" r="4.5" fill="var(--land-fill)" stroke="var(--land-line)" stroke-width="1" />
+            <circle cx="88" cy="511" r="3" fill="var(--land-fill)" stroke="var(--land-line)" stroke-width="1" />
+
+            <!-- route lines: airport -> Ayvalık -->
+            <g stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="1 6" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+              <path d="M144,478 L188,439" />
+              <path d="M144,478 L200,700" />
+              <path d="M144,478 L576,132" />
+              <path d="M144,478 L148,322 L100,290 L455,78" />
+            </g>
+
+            <text class="route-km" x="196" y="450" text-anchor="start">47 km</text>
+            <text class="route-km" x="207" y="595" text-anchor="start">140 km</text>
+            <text class="route-km" x="335" y="298" text-anchor="middle">SAW · 4h</text>
+            <text class="route-km" x="272" y="172" text-anchor="middle">IST · 4h45m</text>
+            <text class="route-km" x="68" y="284" text-anchor="middle" font-size="9.5" opacity="0.85">via 1915 bridge</text>
+
+            <!-- Ayvalık pin (destination) -->
+            <g class="pin" tabindex="0" role="button" data-tip="ayvalik" transform="translate(144,478)" aria-label="Ayvalık — the wedding location">
+              <circle class="pin-halo" r="16" fill="var(--gold)" />
+              <circle class="pin-dot" r="7" fill="var(--gold)" stroke="var(--ink)" stroke-width="2" />
+              <path d="M-3.2,-1 C-3.2,-2.8 -1.6,-4 0,-2.4 C1.6,-4 3.2,-2.8 3.2,-1 C3.2,0.8 0,3 0,3 C0,3 -3.2,0.8 -3.2,-1 Z" fill="var(--ink)" transform="scale(1.15)" />
+              <text x="-11" y="-15" text-anchor="end" font-family="Space Mono, monospace" font-size="13" font-weight="700" fill="var(--ink)">Ayvalık</text>
+            </g>
+
+            <!-- Balıkesir / Koca Seyit (EDO) -->
+            <g class="pin" tabindex="0" role="button" data-tip="edo" transform="translate(188,439)" aria-label="Balıkesir Koca Seyit Airport">
+              <circle class="pin-halo" r="14" fill="var(--sea-strong)" />
+              <circle class="pin-dot" r="6" fill="var(--sea-strong)" stroke="var(--ink)" stroke-width="1.5" />
+              <text x="14" y="-8" font-family="Space Mono, monospace" font-size="12.5" font-weight="700" fill="var(--ink)">EDO</text>
+            </g>
+
+            <!-- Izmir Adnan Menderes (ADB) -->
+            <g class="pin" tabindex="0" role="button" data-tip="adb" transform="translate(200,700)" aria-label="Izmir Adnan Menderes Airport">
+              <circle class="pin-halo" r="14" fill="var(--sea-strong)" />
+              <circle class="pin-dot" r="6" fill="var(--sea-strong)" stroke="var(--ink)" stroke-width="1.5" />
+              <text x="14" y="4" font-family="Space Mono, monospace" font-size="12.5" font-weight="700" fill="var(--ink)">ADB</text>
+            </g>
+
+            <!-- Istanbul Airport (IST) -->
+            <g class="pin" tabindex="0" role="button" data-tip="ist" data-flip="true" transform="translate(455,78)" aria-label="Istanbul Airport">
+              <circle class="pin-halo" r="14" fill="var(--sea-strong)" />
+              <circle class="pin-dot" r="6" fill="var(--sea-strong)" stroke="var(--ink)" stroke-width="1.5" />
+              <text x="-14" y="-8" text-anchor="end" font-family="Space Mono, monospace" font-size="12.5" font-weight="700" fill="var(--ink)">IST</text>
+            </g>
+
+            <!-- Sabiha Gökçen (SAW) -->
+            <g class="pin" tabindex="0" role="button" data-tip="saw" data-flip="true" transform="translate(576,132)" aria-label="Sabiha Gökçen Airport">
+              <circle class="pin-halo" r="14" fill="var(--sea-strong)" />
+              <circle class="pin-dot" r="6" fill="var(--sea-strong)" stroke="var(--ink)" stroke-width="1.5" />
+              <text x="14" y="4" font-family="Space Mono, monospace" font-size="12.5" font-weight="700" fill="var(--ink)">SAW</text>
+            </g>
+          </svg>
+          <div class="tooltip" id="tooltip" role="tooltip"></div>
+        </div>
+      </div>
+      <figcaption>Simplified map, not to scale — dotted lines are driving routes, not straight-line distance. The Istanbul route crosses the Dardanelles by the 1915 Çanakkale Bridge; Sabiha Gökçen stays on the Asian mainland the whole way, which is why it's faster despite Istanbul Airport being the bigger hub.</figcaption>
+    </figure>
+
+    <div class="table-scroll">
+      <table class="airport-table">
+        <caption>Airport detail</caption>
+        <thead>
+          <tr>
+            <th scope="col">Airport</th>
+            <th scope="col">Distance</th>
+            <th scope="col">Driving time</th>
+            <th scope="col">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="name">Balıkesir Koca Seyit</span><br><span class="code">EDO · Edremit</span></td>
+            <td class="num">47 km</td>
+            <td class="num">~45 min</td>
+            <td>Closest by far. Mostly domestic routes via Istanbul.</td>
+          </tr>
+          <tr>
+            <td><span class="name">Izmir Adnan Menderes</span><br><span class="code">ADB</span></td>
+            <td class="num">140 km</td>
+            <td class="num">~2–2.5 hr</td>
+            <td>More international options; a good middle ground.</td>
+          </tr>
+          <tr>
+            <td><span class="name">Sabiha Gökçen</span><br><span class="code">SAW · Istanbul (Asian side)</span></td>
+            <td class="num">~410 km</td>
+            <td class="num">~4 hr</td>
+            <td>Stays on the Asian mainland the whole way — no strait crossing, so it beats flying into IST despite being further from the city center.</td>
+          </tr>
+          <tr>
+            <td><span class="name">Istanbul</span><br><span class="code">IST · European side</span></td>
+            <td class="num">~440 km</td>
+            <td class="num">~4 hr 45 min</td>
+            <td>The biggest hub and best long-haul connections, but the drive crosses the Dardanelles via the 1915 Çanakkale Bridge — a connecting flight into EDO or ADB is often faster door to door.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="itin-h">
+    <div class="eyebrow">A few examples</div>
+    <h2 id="itin-h">Sample itineraries</h2>
+    <p style="color:var(--ink-soft); margin-top:10px; max-width:60ch;">A starting point if you haven't looked at flights yet — real routes we found from a few of the cities guests are coming from. Not a recommendation on airline or price, just proof the trip is doable and roughly what to expect.</p>
+    <div class="itin-grid">
+      <div class="itin-card">
+        <div class="itin-route"><span class="city">SFO</span> <span aria-hidden="true">→</span> Turkey</div>
+        <h3>San Francisco</h3>
+        <a class="itin-link" href="https://www.google.com/travel/flights/s/Js96BSa5tjGQFiPs8" target="_blank" rel="noopener">
+          View sample flights
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 3 13"/></svg>
+        </a>
+      </div>
+      <div class="itin-card">
+        <div class="itin-route"><span class="city">YUL</span> <span aria-hidden="true">→</span> Turkey</div>
+        <h3>Montréal</h3>
+        <a class="itin-link" href="https://www.google.com/travel/flights/s/HNVMSnaYGyqZZRGf6" target="_blank" rel="noopener">
+          View sample flights
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 3 13"/></svg>
+        </a>
+      </div>
+      <div class="itin-card">
+        <div class="itin-route"><span class="city">LON</span> <span aria-hidden="true">→</span> Turkey</div>
+        <h3>London</h3>
+        <a class="itin-link" href="https://www.google.com/travel/flights/s/3EqJtDgtTX4BwRez5" target="_blank" rel="noopener">
+          View sample flights
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 3 13"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="rsvp-h">
+    <div class="eyebrow">RSVP</div>
+    <h2 id="rsvp-h" class="visually-hidden">RSVP</h2>
+    <div class="ticket">
+      <div class="ticket-main">
+        <h3 style="font-size:1.5rem; font-style:italic; font-weight:500;">Let us know you're coming</h3>
+        <p style="color:var(--ink-soft); margin-top:10px; max-width:52ch;">Please RSVP by <strong style="color:var(--ink);">[date TBD]</strong> so we can finalize numbers with our venue. It's a short form — a couple of minutes, tops.</p>
+      </div>
+      <div class="ticket-foot">
+        <a class="rsvp-btn" href="https://forms.gle/NnoZYvmauQwNAfKP7" id="rsvpLink" target="_blank" rel="noopener">
+          RSVP now
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <p class="rsvp-note">Opens a short Google Form in a new tab — keeping this simple for now.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Ayvalık, Turkey &middot; 18–21 May 2027 &middot; page last updated <span id="updated"></span>
+</footer>
+
+<script>
+(function(){
+  var tips = {
+    ayvalik: { title: "Ayvalık", body: "The wedding location — Turkey's northern Aegean coast." },
+    edo: { title: "Balıkesir Koca Seyit (EDO)", body: "47 km · ~45 min drive. The closest airport, mostly domestic routes." },
+    adb: { title: "Izmir Adnan Menderes (ADB)", body: "140 km · ~2–2.5 hr drive. More international flight options." },
+    saw: { title: "Sabiha Gökçen (SAW)", body: "~410 km · ~4 hr drive. On the Asian mainland — no strait crossing, so it beats IST." },
+    ist: { title: "Istanbul Airport (IST)", body: "~440 km · ~4 hr 45 min drive, crossing the Dardanelles via the 1915 bridge. Biggest hub, but a connecting flight may beat the drive." }
+  };
+
+  var svg = document.getElementById('mapSvg');
+  var container = document.getElementById('mapContainer');
+  var tooltip = document.getElementById('tooltip');
+  var pins = svg.querySelectorAll('.pin');
+  var active = null;
+
+  function showTip(pin){
+    var key = pin.getAttribute('data-tip');
+    var data = tips[key];
+    if(!data) return;
+    tooltip.innerHTML = '<strong>' + data.title + '</strong>' + data.body;
+
+    tooltip.style.left = '0px';
+    tooltip.style.top = '0px';
+    tooltip.style.transform = 'translate(-50%, -100%) translateY(-10px)';
+    tooltip.classList.add('show');
+    var tipWidth = tooltip.offsetWidth;
+    var tipHeight = tooltip.offsetHeight;
+
+    var pinRect = pin.getBoundingClientRect();
+    var containerRect = container.getBoundingClientRect();
+    var x = pinRect.left + pinRect.width/2 - containerRect.left;
+    var y = pinRect.top - containerRect.top;
+
+    var flipBelow = pin.getAttribute('data-flip') === 'true';
+    if(flipBelow){
+      tooltip.style.transform = 'translate(-50%, 0%) translateY(' + (pinRect.height + 14) + 'px)';
+    }
+
+    var halfW = tipWidth / 2;
+    var minX = halfW + 6;
+    var maxX = containerRect.width - halfW - 6;
+    if(x < minX) x = minX;
+    if(x > maxX) x = maxX;
+
+    tooltip.style.left = x + 'px';
+    tooltip.style.top = y + 'px';
+    pins.forEach(function(p){ p.classList.remove('active'); });
+    pin.classList.add('active');
+    active = pin;
+  }
+
+  function hideTip(){
+    tooltip.classList.remove('show');
+    if(active) active.classList.remove('active');
+    active = null;
+  }
+
+  pins.forEach(function(pin){
+    pin.addEventListener('mouseenter', function(){ showTip(pin); });
+    pin.addEventListener('mouseleave', hideTip);
+    pin.addEventListener('focus', function(){ showTip(pin); });
+    pin.addEventListener('blur', hideTip);
+    pin.addEventListener('click', function(e){
+      e.preventDefault();
+      if(active === pin){ hideTip(); } else { showTip(pin); }
+    });
+    pin.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') hideTip();
+    });
+  });
+
+  document.addEventListener('click', function(e){
+    if(active && !container.contains(e.target)) hideTip();
+  });
+
+  var d = new Date();
+  var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  document.getElementById('updated').textContent = months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+})();
+</script>
