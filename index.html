@@ -634,7 +634,7 @@
     <figure class="map-figure">
       <div class="map-svg-wrap">
         <div class="map-container" id="mapContainer">
-          <svg viewBox="0 0 626 748" role="img" aria-label="Map of northwest Turkey showing Ayvalık on the Aegean coast, the Dardanelles strait separating it from Istanbul, and the four nearest airports: Balıkesir Koca Seyit, Izmir Adnan Menderes, Istanbul, and Sabiha Gökçen." id="mapSvg">
+          <svg viewBox="0 0 626 748" role="img" aria-label="Map of northwest Turkey showing Ayvalık on the Aegean coast, the strait separating it from Istanbul's European side, and the four nearest airports: Balıkesir Koca Seyit, Izmir Adnan Menderes, Istanbul, and Sabiha Gökçen." id="mapSvg">
             <defs>
               <linearGradient id="seaGrad" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="var(--sea-fill)" />
@@ -665,14 +665,13 @@
               <path d="M144,478 L188,439" />
               <path d="M144,478 L200,700" />
               <path d="M144,478 L576,132" />
-              <path d="M144,478 L148,322 L100,290 L455,78" />
+              <path d="M144,478 L455,78" />
             </g>
 
             <text class="route-km" id="km-edo" x="196" y="450" text-anchor="start">47 km</text>
             <text class="route-km" id="km-adb" x="207" y="595" text-anchor="start">140 km</text>
             <text class="route-km" id="km-saw" x="335" y="298" text-anchor="middle">SAW · 4h</text>
             <text class="route-km" id="km-ist" x="272" y="172" text-anchor="middle">IST · 4h45m</text>
-            <text class="route-km" x="68" y="284" text-anchor="middle" font-size="9.5" opacity="0.85">via 1915 bridge</text>
 
             <!-- Ayvalık pin (destination) -->
             <g class="pin" tabindex="0" role="button" data-tip="ayvalik" transform="translate(144,478)" aria-label="Ayvalık — the wedding location">
@@ -713,7 +712,7 @@
           <div class="tooltip" id="tooltip" role="tooltip"></div>
         </div>
       </div>
-      <figcaption>Simplified map, not to scale — dotted lines are driving routes, not straight-line distance. The Istanbul route crosses the Dardanelles by the 1915 Çanakkale Bridge; Sabiha Gökçen stays on the Asian mainland the whole way, which is why it's faster despite Istanbul Airport being the bigger hub.</figcaption>
+      <figcaption>Simplified map, not to scale — dotted lines are driving routes, not straight-line distance. Sabiha Gökçen sits on the Asian mainland already, so it heads straight south via Bursa and Balıkesir; the Istanbul Airport route has to cross the Bosphorus first, then follows the same corridor — the extra crossing is why it's slower despite being the bigger hub.</figcaption>
     </figure>
 
     <div class="table-scroll">
@@ -849,9 +848,9 @@ var CONTENT = {
     {
       code: "IST", name: "Istanbul", sub: "European side",
       km: "~440 km", time: "~4 hr 45 min", mapLabel: "IST · 4h45m",
-      notes: "The biggest hub and best long-haul connections, but the drive crosses the Dardanelles via the 1915 Çanakkale Bridge — a connecting flight into EDO or ADB is often faster door to door.",
+      notes: "The biggest hub and best long-haul connections, but it's the farthest by road — crossing the Bosphorus, then south via Bursa and Balıkesir. A connecting flight into EDO or ADB is often faster door to door.",
       tipTitle: "Istanbul Airport (IST)",
-      tipBody: "~440 km · ~4 hr 45 min drive, crossing the Dardanelles via the 1915 bridge. Biggest hub, but a connecting flight may beat the drive."
+      tipBody: "~440 km · ~4 hr 45 min drive, crossing the Bosphorus then south via Bursa and Balıkesir. Biggest hub, but a connecting flight may beat the drive."
     }
   ],
 
