@@ -503,6 +503,35 @@
   .itin-link svg{ width:13px; height:13px; }
   .itin-link:hover{ text-decoration:underline; }
 
+  /* ---------- further reading ---------- */
+  .book{
+    border:1px solid var(--line);
+    border-left:3px solid var(--gold);
+    border-radius:8px;
+    padding:20px 22px 22px;
+    background:var(--ground);
+    margin-top:22px;
+  }
+  .book h3{
+    font-size:1.25rem;
+    font-style:italic;
+    font-weight:500;
+    line-height:1.3;
+  }
+  .book .byline{
+    font-family:'Space Mono', monospace;
+    font-size:11.5px;
+    line-height:1.6;
+    letter-spacing:0.02em;
+    color:var(--ink-soft);
+    margin-top:9px;
+  }
+  .book .note{
+    color:var(--ink-soft);
+    margin-top:13px;
+  }
+  .book .itin-link{ margin-top:16px; }
+
   /* ---------- RSVP ticket ---------- */
   .ticket{
     display:grid;
@@ -632,12 +661,12 @@
   <section class="card" aria-labelledby="map-h">
     <div class="eyebrow">Getting here</div>
     <h2 id="map-h">Ayvalık &amp; the nearest airports</h2>
-    <p style="color:var(--ink-soft); margin-top:10px; max-width:60ch;">Ayvalık sits on Turkey's northern Aegean coast. There's no airport in town — most guests will fly into one of these and drive the rest of the way. Hover or tap a pin for driving time; the table below has the full detail.</p>
+    <p style="color:var(--ink-soft); margin-top:10px; max-width:60ch;">Ayvalık sits on Turkey's northern Aegean coast. There's no airport in town — most guests will fly into one of these and drive the rest of the way, or take the scenic option and come by ferry from the Greek island of Lesvos. Hover or tap a pin for travel time; the table below has the full detail.</p>
 
     <figure class="map-figure">
       <div class="map-svg-wrap">
         <div class="map-container" id="mapContainer">
-          <svg viewBox="0 0 626 748" role="img" aria-label="Map of northwest Turkey showing Ayvalık on the Aegean coast, the strait separating it from Istanbul's European side, and the four nearest airports: Balıkesir Koca Seyit, Izmir Adnan Menderes, Istanbul, and Sabiha Gökçen." id="mapSvg">
+          <svg viewBox="0 0 626 748" role="img" aria-label="Map of northwest Turkey showing Ayvalık on the Aegean coast, the Greek island of Lesvos just offshore, the strait separating Ayvalık from Istanbul's European side, and the five nearest airports: Balıkesir Koca Seyit, Izmir Adnan Menderes, Istanbul, Sabiha Gökçen, and Mytilene on Lesvos, which is reached by ferry." id="mapSvg">
             <defs>
               <linearGradient id="seaGrad" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="var(--sea-fill)" />
@@ -659,11 +688,13 @@
                      L456.3,132 L481.7,48.4 L405.6,66 L16.9,88 L0,264 Z"
                   fill="var(--land-fill)" stroke="var(--land-line)" stroke-width="1.5" stroke-linejoin="round" />
 
-            <!-- Cunda / Ayvalık islands, decorative -->
-            <circle cx="103" cy="500" r="4.5" fill="var(--land-fill)" stroke="var(--land-line)" stroke-width="1" />
-            <circle cx="88" cy="511" r="3" fill="var(--land-fill)" stroke="var(--land-line)" stroke-width="1" />
+            <!-- Lesvos (Greece), across the Mytilene strait — home of MJT and the ferry route -->
+            <path d="M64.7,458.3 L81.1,479.6 L101.4,501.6 L110.7,525.8 L118.3,539
+                     L109.9,547.8 L79.4,555.1 L50.7,561 L11.8,552.2 L-8.4,503.8
+                     L16.9,484 L47.3,469.9 Z"
+                  fill="var(--land-fill)" stroke="var(--land-line)" stroke-width="1.5" stroke-linejoin="round" />
 
-            <!-- route lines: airport -> Ayvalık -->
+            <!-- route lines: airport -> Ayvalık (driving) -->
             <g stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="1 6" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
               <path d="M144,478 L188,439" />
               <path d="M144,478 L200,700" />
@@ -671,10 +702,20 @@
               <path d="M144,478 L455,78" />
             </g>
 
+            <!-- ferry route: Mytilene -> Ayvalık (long dashes = sea crossing, not a drive) -->
+            <g stroke="var(--ink-soft)" stroke-width="1.6" stroke-dasharray="7 5" stroke-linecap="round" fill="none" opacity="0.9">
+              <path d="M144,478 L113,534" />
+            </g>
+
             <text class="route-km" id="km-edo" x="196" y="450" text-anchor="start">47 km</text>
             <text class="route-km" id="km-adb" x="207" y="595" text-anchor="start">140 km</text>
             <text class="route-km" id="km-saw" x="335" y="298" text-anchor="middle">SAW · 4h</text>
             <text class="route-km" id="km-ist" x="272" y="172" text-anchor="middle">IST · 4h45m</text>
+            <text class="route-km" id="km-mjt" x="96" y="590" text-anchor="middle">MJT · ferry</text>
+
+            <!-- island name -->
+            <text x="42" y="506" text-anchor="middle" font-family="Space Mono, monospace" font-size="11"
+                  letter-spacing="1.5" fill="var(--ink-soft)" opacity="0.75">LESVOS</text>
 
             <!-- Ayvalık pin (destination) -->
             <g class="pin" tabindex="0" role="button" data-tip="ayvalik" transform="translate(144,478)" aria-label="Ayvalık — the wedding location">
@@ -711,11 +752,18 @@
               <circle class="pin-dot" r="6" fill="var(--sea-strong)" stroke="var(--ink)" stroke-width="1.5" />
               <text x="14" y="4" font-family="Space Mono, monospace" font-size="12.5" font-weight="700" fill="var(--ink)">SAW</text>
             </g>
+
+            <!-- Mytilene / Lesvos (MJT) — reached by ferry -->
+            <g class="pin" tabindex="0" role="button" data-tip="mjt" transform="translate(113,534)" aria-label="Mytilene Odysseas Elytis Airport, Lesvos — the ferry route">
+              <circle class="pin-halo" r="14" fill="var(--sea-strong)" />
+              <circle class="pin-dot" r="6" fill="var(--sea-strong)" stroke="var(--ink)" stroke-width="1.5" />
+              <text x="-13" y="-6" text-anchor="end" font-family="Space Mono, monospace" font-size="12.5" font-weight="700" fill="var(--ink)">MJT</text>
+            </g>
           </svg>
           <div class="tooltip" id="tooltip" role="tooltip"></div>
         </div>
       </div>
-      <figcaption>Simplified map, not to scale — dotted lines are driving routes, not straight-line distance. Sabiha Gökçen sits on the Asian mainland already, so it heads straight south via Bursa and Balıkesir; the Istanbul Airport route has to cross the Bosphorus first, then follows the same corridor — the extra crossing is why it's slower despite being the bigger hub.</figcaption>
+      <figcaption>Simplified map, not to scale — fine dotted lines are driving routes, not straight-line distance, and the long-dashed line out to Lesvos is the ferry crossing. Sabiha Gökçen sits on the Asian mainland already, so it heads straight south via Bursa and Balıkesir; the Istanbul Airport route has to cross the Bosphorus first, then follows the same corridor — the extra crossing is why it's slower despite being the bigger hub.</figcaption>
     </figure>
 
     <div class="table-scroll">
@@ -725,7 +773,7 @@
           <tr>
             <th scope="col">Airport</th>
             <th scope="col">Distance</th>
-            <th scope="col">Driving time</th>
+            <th scope="col">Travel time</th>
             <th scope="col">Notes</th>
           </tr>
         </thead>
@@ -749,6 +797,13 @@
     <div class="eyebrow">A little history</div>
     <h2 id="story-h">The story of Ayvalık</h2>
     <div id="storyText"></div>
+  </section>
+
+  <section class="card" aria-labelledby="reading-h">
+    <div class="eyebrow">Further reading</div>
+    <h2 id="reading-h">If you want to go deeper</h2>
+    <p id="readingIntro" style="color:var(--ink-soft); margin-top:10px; max-width:60ch;"></p>
+    <div id="readingList"></div>
   </section>
 
   </div>
@@ -859,6 +914,13 @@ var CONTENT = {
       notes: "The biggest hub and best long-haul connections, but it's the farthest by road — crossing the Bosphorus, then south via Bursa and Balıkesir. A connecting flight into EDO or ADB is often faster door to door.",
       tipTitle: "Istanbul Airport (IST)",
       tipBody: "~440 km · ~4 hr 45 min drive, crossing the Bosphorus then south via Bursa and Balıkesir. Biggest hub, but a connecting flight may beat the drive."
+    },
+    {
+      code: "MJT", name: "Mytilene Odysseas Elytis", sub: "Lesvos, Greece",
+      km: "~10 km to port", time: "~15 min + ~1 hr ferry", mapLabel: "MJT · ferry",
+      notes: "The scenic route — and the only one that arrives by sea. In May there are flights from the UK and the Netherlands a few days a week, plus connections from Athens. It's a 10–15 minute drive from the airport to Mytilene port, then a ferry of about an hour straight into Ayvalık. Worth building in a night or two on Lesvos while you're there. Note it's a separate country, so you'll cross a border — bring your passport and check visa rules for both Greece and Turkey.",
+      tipTitle: "Mytilene / Lesvos (MJT)",
+      tipBody: "The scenic route: ~15 min drive to Mytilene port, then a ~1 hr ferry into Ayvalık. Flights from the UK, the Netherlands, and Athens in May."
     }
   ],
 
@@ -875,10 +937,25 @@ var CONTENT = {
 
   story: {
     paragraphs: [
-      "Ayvalık takes its name from <em>ayva</em>, Turkish for quince — this stretch of the northern Aegean was once known for its orchards. Long before that it was Kydonies, a Greek Orthodox town that grew into one of the wealthiest ports on the Aegean, granted an unusual degree of self-rule in 1773 by the Ottoman admiral Cezayirli Gazi Hasan Pasha.",
-      "By the late 1800s Kydonies had over 20,000 residents and a skyline built on olive oil — more than twenty stone factories, their brick chimneys visible from the water. That changed in 1923: under the Greek–Turkish population exchange that followed the war, the Greek community left for Lesbos and mainland Greece, and Muslim families from Crete, Lesbos, and Macedonia resettled the town — part of why Ayvalık's food still carries a distinctly Cretan accent today.",
-      "The old town kept its bones: narrow stone streets, converted churches, and those same olive oil factories — Ayvalık's industrial landscape has been on UNESCO's tentative World Heritage list since 2017. Well over two million olive trees still surround the town, some more than 500 years old, and the local oil is considered some of the best in Turkey.",
-      "Just offshore is Cunda (Alibey Island), connected by a causeway since the 1960s and thick with fish restaurants and Greek-era houses — one of the best places on this coast to watch the sun go down. These days Ayvalık has a bohemian streak too: an international painters' workshop has drawn artists to an old sardine factory here since the 1970s, and the old town is full of small galleries, cafés, and shops that reward an aimless wander."
+      "Ayvalık takes its name from <em>ayva</em>, Turkish for quince — this coast was long known for its orchards. But for most of its history the town was Kydonies (Κυδωνίες), a Greek Orthodox town that grew into one of the wealthiest ports on the Aegean. In 1773 the Ottoman admiral Cezayirli Gazi Hasan Pasha granted it an unusual degree of self-rule, and Kydonies used that freedom well: by the early 1800s it had a celebrated academy, its own printing press, and a skyline of churches.",
+      "By the late 1800s the town held well over 20,000 people and an economy built on olive oil — more than twenty stone factories, their chimneys visible from the water. Then it ended. In 1922, as the Greco-Turkish war closed, Ayvalık's Greek Orthodox families — many with roots here going back centuries — fled across the water to Lesvos and on into mainland Greece, most of them never to return. The 1923 Treaty of Lausanne made that separation compulsory and permanent, and it cut both ways: people were sorted by religion rather than language or birthplace, some 1.2 million Orthodox Christians uprooted from Anatolia and around 400,000 Muslims from Greece. The families who arrived to repopulate Ayvalık — from Crete, Lesvos, and Macedonia — had just lost homes of their own, and many of them went on speaking Greek here for a generation or more.",
+      "Both histories are still legible in the streets. The old quarter kept its bones — narrow stone lanes, merchants' houses, and churches that became mosques: Agios Georgios is now the Çınarlı mosque, Agios Ioannis the Saatli. The great Taxiarchs churches, one in town and one out on Cunda, have been restored and reopened as museums. The olive oil factories still stand too, and Ayvalık's industrial landscape has been on UNESCO's tentative World Heritage list since 2017. Over two million olive trees surround the town, some more than 500 years old, and the oil is reckoned among the best in Turkey.",
+      "Just offshore is Cunda (Alibey Island), joined to the mainland by a causeway since the 1960s and thick with fish restaurants and old stone houses — one of the best places on this coast to watch the sun go down. Ayvalık has a bohemian streak these days as well: an international painters' workshop has drawn artists to an old sardine factory since the 1970s, the old town is full of small galleries and cafés that reward an aimless wander, and the local cooking still carries a distinctly Cretan accent, a century on."
+    ]
+  },
+
+  // Books, films, anything worth pointing guests at. Add more entries to
+  // the items array and they'll render as extra cards automatically.
+  reading: {
+    intro: "If you'd like to arrive knowing a little about whose town you're walking through:",
+    items: [
+      {
+        title: "Aivali: A Story of Greeks and Turks in 1922",
+        byline: "Soloup (Antonis Nikolopoulos) · translated by Tom Papademetriou · Somerset Hall Press, 2019",
+        note: "A graphic novel about this exact place and moment, told through the work of four writers from Ayvalık: the Greek refugees Fotis Kontoglou, Ilias Venezis and Agapi Venezi-Molyviati, who left in 1922, and the Turkish novelist Ahmet Yorulmaz, born here in 1932 to a family that had arrived from Crete in the exchange — and who spent much of his life translating Greek literature into Turkish. Its Turkish subtitle puts it best: four writers, three generations, two shores, one Ayvalık.",
+        url: "https://www.somersethallpress.com/Store/ISBN978-1-935244-22-6",
+        linkLabel: "Somerset Hall Press"
+      }
     ]
   },
 
@@ -978,6 +1055,22 @@ var CONTENT = {
   var storyEl = document.getElementById('storyText');
   CONTENT.story.paragraphs.forEach(function(p){
     storyEl.appendChild(el('p', { class: 'story-text', html: p }));
+  });
+
+  /* ---------- render: further reading ---------- */
+  document.getElementById('readingIntro').textContent = CONTENT.reading.intro;
+  var readEl = document.getElementById('readingList');
+  CONTENT.reading.items.forEach(function(b){
+    var card = el('div', { class: 'book' });
+    card.appendChild(el('h3', { text: b.title }));
+    card.appendChild(el('div', { class: 'byline', text: b.byline }));
+    card.appendChild(el('p', { class: 'note', html: b.note }));
+    card.appendChild(el('a', {
+      class: 'itin-link',
+      html: b.linkLabel + ' <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 3 13"/></svg>',
+      attrs: { href: b.url, target: '_blank', rel: 'noopener' }
+    }));
+    readEl.appendChild(card);
   });
 
   /* ---------- render: RSVP ---------- */
