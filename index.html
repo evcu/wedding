@@ -611,6 +611,10 @@
     <div class="eyebrow">The short version</div>
     <h2 id="tldr-h" class="visually-hidden">TL;DR</h2>
     <div id="tldrText"></div>
+    <a class="rsvp-btn" href="https://forms.gle/RhiBFaB3NriDdLXb9" id="tldrRsvpLink" target="_blank" rel="noopener" style="margin-top:20px;">
+      RSVP now
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+    </a>
   </section>
 
   <section class="card" aria-labelledby="dates-h">
@@ -980,6 +984,7 @@ var CONTENT = {
   document.getElementById('rsvpIntro').textContent = CONTENT.rsvp.intro;
   document.getElementById('rsvpNote2').textContent = CONTENT.rsvp.note;
   document.getElementById('rsvpLink').setAttribute('href', CONTENT.rsvp.url);
+  document.getElementById('tldrRsvpLink').setAttribute('href', CONTENT.rsvp.url);
 
   /* ---------- render: tab bar ---------- */
   var tabbar = document.getElementById('tabbar');
