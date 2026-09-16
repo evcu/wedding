@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ayvalık Wedding 2027</title>
+<title>Laura &amp; Utku — Ayvalık Wedding 2027</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
 <style>
@@ -611,13 +611,12 @@
     <div class="eyebrow">The short version</div>
     <h2 id="tldr-h" class="visually-hidden">TL;DR</h2>
     <div id="tldrText"></div>
-    <span class="draft-stamp">placeholder text</span>
   </section>
 
   <section class="card" aria-labelledby="dates-h">
     <div class="eyebrow">When</div>
-    <h2 id="dates-h">18–21 May 2027</h2>
-    <p style="color:var(--ink-soft); margin-top:10px; max-width:56ch;">A four-day weekend, Tuesday through Friday. Draft shape below — exact events and times TBD.</p>
+    <h2 id="dates-h"></h2>
+    <p id="datesSummary" style="color:var(--ink-soft); margin-top:10px; max-width:56ch;"></p>
     <div class="days" id="daysGrid"></div>
     <span class="draft-stamp" style="margin-left:0; margin-top:16px; display:inline-flex;">schedule TBD</span>
   </section>
@@ -758,10 +757,11 @@
     <div class="ticket">
       <div class="ticket-main">
         <h3 style="font-size:1.5rem; font-style:italic; font-weight:500;">Let us know you're coming</h3>
-        <p style="color:var(--ink-soft); margin-top:10px; max-width:52ch;">Please RSVP by <strong id="rsvpDeadline" style="color:var(--ink);">[date TBD]</strong> so we can finalize numbers with our venue. It's a short form — a couple of minutes, tops.</p>
+        <p id="rsvpIntro" style="color:var(--ink-soft); margin-top:10px; max-width:52ch;"></p>
+        <p id="rsvpNote2" style="color:var(--ink-soft); margin-top:10px; max-width:52ch;"></p>
       </div>
       <div class="ticket-foot">
-        <a class="rsvp-btn" href="https://forms.gle/NnoZYvmauQwNAfKP7" id="rsvpLink" target="_blank" rel="noopener">
+        <a class="rsvp-btn" href="https://forms.gle/RhiBFaB3NriDdLXb9" id="rsvpLink" target="_blank" rel="noopener">
           RSVP now
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
@@ -775,7 +775,7 @@
 </main>
 
 <footer>
-  Ayvalık, Turkey &middot; 18–21 May 2027 &middot; page last updated <span id="updated"></span>
+  Ayvalık, Turkey &middot; <span id="footerDates"></span> &middot; page last updated <span id="updated"></span>
 </footer>
 
 <script>
@@ -791,10 +791,10 @@ var CONTENT = {
   hero: {
     routeFrom: "YOU",
     routeTo: "AYVALIK",
-    title: 'Getting married in <em>Ayvalık</em>',
-    subtitle: "A long weekend on Turkey's northern Aegean coast — olive groves, whitewashed streets, and the sea. Everything guests need to plan the trip lives on this one page, and we'll keep adding to it between now and May 2027.",
+    title: 'Laura &amp; Utku are getting married in <em>Ayvalık</em>',
+    subtitle: "A festival-style weekend on Turkey's northern Aegean coast — olive groves, whitewashed streets, and the sea. Everything guests need to plan the trip lives on this one page, and we'll keep adding to it between now and May 2027.",
     strip: [
-      { k: "Dates", v: "18–21 MAY 2027" },
+      { k: "Dates", v: "28–30 MAY 2027" },
       { k: "Location", v: "Ayvalık, TR" },
       { k: "Nearest airport", v: "EDO · 47 KM" }
     ]
@@ -809,16 +809,20 @@ var CONTENT = {
 
   tldr: {
     paragraphs: [
-      "We're getting married in Ayvalık over four days in May 2027 — think olive-oil coastline, long dinners, and a big welcome for everyone who makes the trip. This page is the one place to check for dates, travel logistics, and how to RSVP; we'll fill in accommodation, dress code, and the full schedule as they're settled.",
-      "Short on time? You need three things: the dates below, a flight into one of the nearby airports, and an RSVP before we finalize numbers."
+      "We want to throw a huge party and create a festival-like weekend that's worth traveling for — three days by the Aegean, olive-oil coastline, long dinners, and a big welcome for everyone who makes the trip. This page is the one place to check for dates, travel logistics, and how to RSVP; we'll fill in accommodation, dress code, and the full schedule as they're settled.",
+      "Short on time? You need three things: the dates below, a flight into one of the nearby airports, and an RSVP as soon as you can — even an early guess helps us finalize the venue."
     ]
   },
 
+  dates: {
+    range: "28–30 May 2027",
+    summary: "A three-day weekend, Friday through Sunday — arrivals from 5pm on the 28th, wrapping up by 2pm on the 30th. Draft shape below — exact events and times TBD."
+  },
+
   days: [
-    { dow: "Tue", num: 18, event: "Arrivals &amp; welcome gathering" },
-    { dow: "Wed", num: 19, event: "Welcome dinner" },
-    { dow: "Thu", num: 20, event: "Wedding day" },
-    { dow: "Fri", num: 21, event: "Farewell brunch" }
+    { dow: "Fri", num: 28, event: "Arrivals from 5pm" },
+    { dow: "Sat", num: 29, event: "Wedding day" },
+    { dow: "Sun", num: 30, event: "Farewell &amp; departures by 2pm" }
   ],
 
   // Used to build the map's route labels, the tooltip on each pin, and
@@ -875,8 +879,9 @@ var CONTENT = {
   },
 
   rsvp: {
-    deadline: "[date TBD]",
-    url: "https://forms.gle/NnoZYvmauQwNAfKP7"
+    intro: "There's no hard deadline yet — but the earlier you can let us know, the more it helps us finalize the venue, seating, and childcare. Even an early guess is welcome.",
+    note: "Partners and kids are very welcome. The form asks how many seats to plan for and whether you'd like childcare arranged during the weekend.",
+    url: "https://forms.gle/RhiBFaB3NriDdLXb9"
   }
 };
 /* ============ end of editable content — rendering code below ============ */
@@ -911,6 +916,11 @@ var CONTENT = {
   CONTENT.tldr.paragraphs.forEach(function(p){
     tldrEl.appendChild(el('p', { class: 'tldr-text', html: p }));
   });
+
+  /* ---------- render: dates ---------- */
+  document.getElementById('dates-h').textContent = CONTENT.dates.range;
+  document.getElementById('datesSummary').textContent = CONTENT.dates.summary;
+  document.getElementById('footerDates').textContent = CONTENT.dates.range;
 
   /* ---------- render: days ---------- */
   var daysEl = document.getElementById('daysGrid');
@@ -967,7 +977,8 @@ var CONTENT = {
   });
 
   /* ---------- render: RSVP ---------- */
-  document.getElementById('rsvpDeadline').textContent = CONTENT.rsvp.deadline;
+  document.getElementById('rsvpIntro').textContent = CONTENT.rsvp.intro;
+  document.getElementById('rsvpNote2').textContent = CONTENT.rsvp.note;
   document.getElementById('rsvpLink').setAttribute('href', CONTENT.rsvp.url);
 
   /* ---------- render: tab bar ---------- */
